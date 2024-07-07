@@ -1,24 +1,167 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useState } from "react";
+import Navbar from "./Navbar";
+import Home from "./Home";
+import Intro from "./Intro";
+import ChNavbar from "./ChNavbar";
+import ChapterSummary from "./ChapterSummary";
+import VerseDetails from "./VerseDetails";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const handleHamburgerClick = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <div className="main">
+          <div className={`navbar ${isMenuOpen ? "open" : "closed"}`}>
+            <Switch>
+              <Route exact path="/">
+                <div className="options">
+                  <div className="chSelection">Select Chapter</div>
+                  <div
+                    id="hamburger"
+                    className="ham"
+                    onClick={handleHamburgerClick}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 25 25"
+                      width="35"
+                      height="35"
+                      color="white"
+                      fill="white"
+                    >
+                      <path
+                        d="M4 5L20 5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M4 12L20 12"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M4 19L20 19"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                <Navbar />
+              </Route>
+              <Route path="/chapters/:id">
+                <div className="options">
+                  <div className="options">Select Verse</div>
+                  <div
+                    id="hamburger"
+                    className="ham"
+                    onClick={handleHamburgerClick}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 25 25"
+                      width="35"
+                      height="35"
+                      color="white"
+                      fill="white"
+                    >
+                      <path
+                        d="M4 5L20 5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M4 12L20 12"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M4 19L20 19"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <ChNavbar />
+              </Route>
+            </Switch>
+          </div>
+          <div className="content">
+            <div className="introduction">
+              <div
+                id="hamburger"
+                className="ham"
+                onClick={handleHamburgerClick}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 25 25"
+                  width="35"
+                  height="35"
+                  color="white"
+                  fill="white"
+                >
+                  <path
+                    d="M4 5L20 5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M4 12L20 12"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M4 19L20 19"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <Intro />
+            </div>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/chapters/:id">
+                <ChapterSummary />
+              </Route>
+              <Route path="/chapters/:ch/:vs">
+                <VerseDetails />
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 
