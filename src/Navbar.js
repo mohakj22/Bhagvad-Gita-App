@@ -4,7 +4,7 @@ const Navbar = () => {
   const { data, loading, error } = useFetch(
     "https://bhagavad-gita3.p.rapidapi.com/v2/chapters/?skip=0&limit=18"
   );
-    console.log("called in navbar", data);
+    // console.log("called in navbar", data);
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 

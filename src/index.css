@@ -14,6 +14,84 @@ a {
   text-decoration: none;
 }
 
+
+/* Home page  */
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+body {
+  background-color: #161b22;
+  overflow-x: hidden;
+}
+
+/* Home Container */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Welcome Section */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #ff6b96;
+}
+
+.welcome-section h2 {
+  font-size: 1.8rem;
+  color: #f13568;
+}
+
+/* Intro Article */
+.intro-article {
+  background-color: #232931;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.intro-article p{
+  padding:20px;
+}
+/* Sections */
+section {
+  margin-bottom: 30px;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: #f13568;
+  margin-bottom: 10px;
+}
+
+section p {
+  background-color: #232931;
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 1.6;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
 .pageIntro {
   display: flex;
   justify-content: space-between;
@@ -22,7 +100,7 @@ a {
   align-items: center;
   height: 70px;
   border-bottom: 2px solid #30363d;
-  width:100%;
+  width: 100%;
 }
 .pageIntro h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -71,7 +149,7 @@ a {
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 15vw;
+  width: 300px;
   height: 100vh;
 }
 .introduction {
@@ -93,12 +171,14 @@ a {
 .chapter {
   font-size: 18px;
   text-align: center;
-  padding: 8px;
-  width: 10vw;
-  border-radius: 8px;
-  background-color: #2e3b4e;
+  padding: 12px 20px;
+  width: 250px;
+  border-radius: 12px;
+  background-color: #1f2a3a;
+  color: #ffffff;
   margin-top: 15px;
-  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .chapter:hover {
@@ -153,7 +233,7 @@ a {
   margin-top: 15px;
   font-size: 25px;
   text-align: center;
-  background-color: #2e3b4e;
+  background-color: #1f2a3a;
   border-radius: 15px;
   padding: 20px;
 }
@@ -163,9 +243,10 @@ a {
   padding: 3px;
 }
 .shlok {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
   font-size: 2rem;
   margin-top: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   background: linear-gradient(
     45deg,
     #004d40,
@@ -177,24 +258,37 @@ a {
   background-size: 300% 300%;
   animation: gradientAnimation 10s ease infinite;
   color: #fff;
-  padding: 10px;
+  padding: 20px;
   border-radius: 15px;
-  margin-bottom: 10px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background 0.5s ease-in-out;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .translations {
   text-align: center;
   padding: 20px;
   font-size: 1.8rem;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 15px;
   background-color: #232931;
-  border: 3px solid white;
-  border-radius: 8px;
+  /* border: 3px solid white; */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
+  border-radius: 15px;
 }
 .traslationEnglish {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
   border-radius: 8px;
   font-weight: bold;
   color: #ffc000;
@@ -202,6 +296,7 @@ a {
   font-style: italic;
 }
 .traslationHindi {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
   border-radius: 8px;
   font-style: italic;
   font-weight: bold;
@@ -210,23 +305,25 @@ a {
 }
 
 .purport {
-  border: 2px solid white;
-  border-radius: 8px;
-  background-color: #232931;
+  border-radius: 12px;
+  background-color: #161b22; /* Darker background color */
   font-size: 1.6rem;
   margin-top: 15px;
-  padding: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
+  padding-top:10px;
+  padding-bottom:10px;
 }
-.purportHindi {
-  border: 1px solid white;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 30px;
-}
+
+.purportHindi,
 .purportEnglish {
-  border: 1px solid white;
   border-radius: 8px;
   padding: 20px;
+  background-color: #1f2a3a; 
+  color: #f0f0f0; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
+  margin-bottom: 20px;
 }
 .options {
   width: 100%;
@@ -238,14 +335,13 @@ a {
   padding: 5px;
   background-color: #232931;
   text-align: center;
-  /* border-bottom:1px solid white; */
 }
 .ham {
   display: none;
   background-color: #232931;
 }
-.chSelection{
-  background-color:#232931;
+.chSelection {
+  background-color: #232931;
 }
 
 /* Scrollbar styles */
@@ -266,7 +362,31 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-@media (max-width: 1000px) {
+
+@media (max-width: 1450px) {
+  .navbar {
+    background-color: #161b22;
+
+    width: 260px;
+  }
+  .chapter {
+    width: 220px;
+  }
+}
+@media (max-width: 1250px) {
+  .navbar {
+    background-color: #161b22;
+
+    width: 240px;
+  }
+  .chapter {
+    width: 200px;
+  }
+}
+
+
+
+@media (max-width: 1050px) {
   .ham {
     display: block;
   }
@@ -278,20 +398,22 @@ a {
     z-index: 1;
     width: 300px;
   }
-  .closed{
-    left:-100%;
+  .closed {
+    left: -100%;
   }
-  .open{
-    left:0;
+  .open {
+    left: 0;
   }
   .chapter {
-    width: 250px  ;
+    width: 250px;
   }
-  .introduction{
-    display:flex;
-    align-items:center;
+  .introduction {
+    display: flex;
+    align-items: center;
   }
-  .options{    justify-content: space-between;}
+  .options {
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 600px) {

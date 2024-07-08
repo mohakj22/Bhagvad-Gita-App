@@ -9,7 +9,7 @@ const ChNavbar = () => {
   );
 
   // Log data to check content
-  console.log("called in chnavbar",data);
+  // console.log("called in chnavbar",data);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;

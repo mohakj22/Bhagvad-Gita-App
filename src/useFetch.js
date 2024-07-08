@@ -22,7 +22,7 @@ const useFetch = (url) => {
           const response = await fetch(url, options);
           if (response.ok) {
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             setData(data);
             setLoading(false);
             return data;
@@ -39,7 +39,7 @@ const useFetch = (url) => {
         } catch (error) {
           setMessage("We could'nt load the data. Sorry for the inconvinience.")
           if (attempt === retryCount) {
-            console.error("Error:", error);
+            // console.error("Error:", error);
             setError(error);
             setLoading(false);
             throw error;

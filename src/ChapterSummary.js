@@ -8,7 +8,7 @@ const ChapterSummary = () => {
 
     // Log data to check content
     //   console.log("data",data);
-    console.log("called in chapter summary : ", data, id);
+    // console.log("called in chapter summary : ", data, id);
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
