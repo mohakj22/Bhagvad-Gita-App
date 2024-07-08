@@ -12,13 +12,13 @@ const Navbar = () => {
     <div className="Navbar">
       {data &&
         data.map((chapter) => (
-          <Link to={`/chapters/${chapter.id}`}>
+          <Link to={`/chapters/${chapter.id}`} key={chapter.id}>
             <div className="chapter" key={chapter.id}>
               Chapter: {chapter.id}
             </div>
           </Link>
         ))}
-          <div className="footer"></div>
+      <div className="footer"></div>
     </div>
   );
 };
