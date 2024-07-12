@@ -61,7 +61,7 @@ function App() {
                   </div>
                 </div>
 
-                <Navbar />
+                <Navbar handleHamburgerClick = {handleHamburgerClick} />
               </Route>
               <Route path="/chapters/:id">
                 <div className="options">
@@ -103,7 +103,7 @@ function App() {
                     </svg>
                   </div>
                 </div>
-                <ChNavbar />
+                <ChNavbar handleHamburgerClick={handleHamburgerClick} />
               </Route>
             </Switch>
           </div>
