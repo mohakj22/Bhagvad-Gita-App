@@ -8,7 +8,7 @@ import ChapterSummary from "./ChapterSummary";
 import VerseDetails from "./VerseDetails";
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleHamburgerClick = () => {
     setIsMenuOpen(!isMenuOpen);
