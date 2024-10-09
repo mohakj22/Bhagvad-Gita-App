@@ -109,11 +109,7 @@ function App() {
           </div>
           <div className="content">
             <div className="introduction">
-              <div
-                id="hamburger"
-                className="ham"
-                onClick={handleHamburgerClick}
-              >
+              <div id="hamburger" className="ham" onClick={handleHamburgerClick}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 25 25"

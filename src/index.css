@@ -14,7 +14,6 @@ a {
   text-decoration: none;
 }
 
-
 /* Home page  */
 
 /* General Styles */
@@ -22,7 +21,7 @@ a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: white;
 }
 
@@ -36,6 +35,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  margin-top: 80px;
 }
 
 /* Welcome Section */
@@ -66,8 +66,8 @@ body {
   font-size: 1.3rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-.intro-article p{
-  padding:20px;
+.intro-article p {
+  padding: 20px;
 }
 /* Sections */
 section {
@@ -89,9 +89,6 @@ section p {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-
-
-
 .pageIntro {
   display: flex;
   justify-content: space-between;
@@ -110,6 +107,8 @@ section p {
 .pageIntro .links {
   display: flex;
   align-items: center;
+  position:fixed;
+  right:1%;
 }
 .pageIntro .links a {
   color: whitesmoke;
@@ -154,10 +153,12 @@ section p {
 }
 .introduction {
   margin-bottom: 10px;
+  position: fixed;
+  width: 100%;
 }
 .content {
   flex: 1;
-  padding: 20px;
+  padding: 10px;
   padding-top: 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -178,7 +179,8 @@ section p {
   color: #ffffff;
   margin-top: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    background-color 0.2s ease-in-out;
 }
 
 .chapter:hover {
@@ -194,6 +196,7 @@ section p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 90px;
 }
 .chapterName {
   font-size: 40px;
@@ -241,6 +244,7 @@ section p {
 /* VerseDetails.css */
 .verse_details {
   padding: 3px;
+  margin-top: 80px;
 }
 .shlok {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
@@ -262,7 +266,8 @@ section p {
   border-radius: 15px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background 0.5s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    background 0.5s ease-in-out;
 }
 
 @keyframes gradientAnimation {
@@ -284,11 +289,11 @@ section p {
   margin-bottom: 15px;
   background-color: #232931;
   /* border: 3px solid white; */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
   border-radius: 15px;
 }
 .traslationEnglish {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
   border-radius: 8px;
   font-weight: bold;
   color: #ffc000;
@@ -296,7 +301,7 @@ section p {
   font-style: italic;
 }
 .traslationHindi {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
   border-radius: 8px;
   font-style: italic;
   font-weight: bold;
@@ -309,19 +314,19 @@ section p {
   background-color: #161b22; /* Darker background color */
   font-size: 1.6rem;
   margin-top: 15px;
-  padding: 25px;
+  padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   color: #f0f0f0;
-  padding-top:10px;
-  padding-bottom:10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .purportHindi,
 .purportEnglish {
   border-radius: 8px;
   padding: 20px;
-  background-color: #1f2a3a; 
-  color: #f0f0f0; 
+  background-color: #1f2a3a;
+  color: #f0f0f0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 9);
   margin-bottom: 20px;
 }
@@ -384,8 +389,6 @@ section p {
   }
 }
 
-
-
 @media (max-width: 1050px) {
   .ham {
     display: block;
@@ -423,6 +426,7 @@ section p {
   .pageIntro h1 {
     padding: 0;
   }
+  
 }
 @media (max-width: 500px) {
   .pageIntro {
@@ -439,8 +443,8 @@ section p {
     letter-spacing: 0px;
     text-decoration: none;
     font-size: 14px;
-    margin-left: 0px;
-    margin-right: 0px;
+    /* margin-left: 0px;
+    margin-right: 0px; */
   }
 }
 @media (max-width: 370px) {
@@ -457,7 +461,7 @@ section p {
     letter-spacing: 0px;
     text-decoration: none;
     font-size: 14px;
-    margin-left: 0px;
-    margin-right: 0px;
+    /* margin-left: 0px;
+    margin-right: 0px; */
   }
 }
