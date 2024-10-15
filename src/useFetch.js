@@ -4,7 +4,7 @@ const useFetch = (url) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [message, setMessage] = useState("Loading.......")
+  const [message, setMessage] = useState("Loading.......");
 
   useEffect(() => {
     async function fetchVerses(retryCount = 3) {
@@ -17,18 +17,18 @@ const useFetch = (url) => {
         },
       };
 
+      console.log("Fetching from URL:", url); // Log the URL for debugging
+
       for (let attempt = 1; attempt <= retryCount; attempt++) {
         try {
           const response = await fetch(url, options);
           if (response.ok) {
             const data = await response.json();
-            // console.log(data);
             setData(data);
             setLoading(false);
             return data;
           } else if (response.status === 429 && attempt < retryCount) {
-            // Wait before retrying (exponential backoff)
-            const waitTime = Math.pow(2, attempt) * 1000; // 2^attempt seconds
+            const waitTime = Math.pow(2, attempt) * 1000;
             console.log(
               `Rate limit exceeded. Retrying in ${waitTime / 1000} seconds...`
             );
@@ -37,9 +37,8 @@ const useFetch = (url) => {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
         } catch (error) {
-          setMessage("We could'nt load the data. Sorry for the inconvinience.")
+          setMessage("We couldn't load the data. Sorry for the inconvenience.");
           if (attempt === retryCount) {
-            // console.error("Error:", error);
             setError(error);
             setLoading(false);
             throw error;
@@ -47,6 +46,7 @@ const useFetch = (url) => {
         }
       }
     }
+
     fetchVerses();
   }, [url]);
 

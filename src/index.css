@@ -465,3 +465,69 @@ section p {
     margin-right: 0px; */
   }
 }
+.chapter-select {
+  width: 90%;
+  max-width: 300px;
+  padding: 10px 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  background-color: #232931;
+  color: #ffffff;
+  border: 1px solid #30363d;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, border 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.chapter-select:hover {
+  background-color: #1f2a3a;
+}
+
+.chapter-select:focus {
+  border: 1px solid #f13568;
+}
+
+.chapter-select option {
+  background-color: #161b22;
+  color: #ffffff;
+  padding: 10px;
+}
+.nav-buttons{
+  display:flex;
+  justify-content: center;
+}
+.nav-buttons {
+  display: flex;
+  justify-content: center; /* Center buttons in the container */
+  width: 100%; /* Make the container take full width */
+}
+
+.nb {
+  color: whitesmoke;
+  background: linear-gradient(135deg, #c2185b, #e0245e, #ff7675);
+  border-radius: 8px;
+  padding: 12px 0; /* Adjusted padding for better uniformity */
+  flex: 1; /* Allow buttons to grow equally */
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0px;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 10px; /* Add margin to space buttons evenly */
+  cursor: pointer; /* Change the cursor to pointer */
+  border:none;
+}
+
+.nb:hover {
+  background: linear-gradient(135deg, #a91448, #c2185b, #e0245e, #ff7675);
+  transform: scale(1.03);
+}
+
+.nb:active {
+  transform: scale(0.95);
+}
+
