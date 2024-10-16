@@ -2,7 +2,7 @@ import { useParams, useHistory } from "react-router-dom";
 import useFetch from "./useFetch";
 import { useState, useEffect } from "react";
 
-const VerseDetails = () => {
+const VerseDetails = ({ contentRef }) => {
   const [hindiPurport, setHindiPurport] = useState("");
   const [englishPurport, setEnglishPurport] = useState("");
   const { ch, vs } = useParams();
@@ -14,26 +14,21 @@ const VerseDetails = () => {
     `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/${ch}/verses/`
   );
 
-  // Fetch data for the current verse
   const verseData = useFetch(
     `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/${ch}/verses/${verseFromParams}/`
   );
 
-  // console.log("Chapter:", ch, "Verse:", verseFromParams);
   useEffect(() => {
     if (data) {
       setTotalVerses(data.length);
     }
   }, [data]);
 
-  // Fetching data for the current verse
   useEffect(() => {
     if (verseData.data && verseData.data.commentaries) {
-      // console.log("Data fetched successfully:", verseData.data);
       const swamiRamsukhdasCommentary = verseData.data.commentaries.find(
         (commentary) => commentary.author_name === "Swami Ramsukhdas"
       );
-
       const swamiSivanandaCommentary = verseData.data.commentaries.find(
         (commentary) => commentary.author_name === "Swami Sivananda"
       );
@@ -49,21 +44,26 @@ const VerseDetails = () => {
           ? swamiSivanandaCommentary.description
           : "No comments"
       );
+
+      // Scroll the content element to the top
+      if (contentRef.current) {
+        contentRef.current.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
-  }, [verseData.data]);
+  }, [verseData.data, contentRef]);
 
   const handlePrevious = () => {
     const newVerse = verseFromParams - 1;
     if (newVerse > 0) {
-      console.log("Navigating to previous verse:", newVerse);
       history.push(`/chapters/${ch}/${newVerse}`);
     }
   };
 
   const handleNext = () => {
     const newVerse = verseFromParams + 1;
-    console.log("Navigating to next verse:", newVerse);
-    history.push(`/chapters/${ch}/${newVerse}`);
+    if (newVerse <= totalVerses) {
+      history.push(`/chapters/${ch}/${newVerse}`);
+    }
   };
 
   if (verseData.loading) return <div>Loading...</div>;

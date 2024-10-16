@@ -156,14 +156,14 @@ section p {
   position: fixed;
   width: 100%;
 }
-.content {
-  flex: 1;
-  padding: 10px;
-  padding-top: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: calc(100vh);
-}
+  .content {
+    flex: 1;
+    padding: 10px;
+    padding-top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100vh);
+  }
 
 .footer {
   height: 85px;

@@ -1,14 +1,16 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Navbar from "./Navbar";
 import Home from "./Home";
 import Intro from "./Intro";
 import ChNavbar from "./ChNavbar";
 import ChapterSummary from "./ChapterSummary";
 import VerseDetails from "./VerseDetails";
+import ScrollToTop from "./ScrollToTop"; // Import the ScrollToTop component
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const contentRef = useRef(null);
 
   const handleHamburgerClick = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,6 +19,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <ScrollToTop /> {/* Ensure this is added here */}
         <div className="main">
           <div className={`navbar ${isMenuOpen ? "open" : "closed"}`}>
             <Switch>
@@ -60,7 +63,6 @@ function App() {
                     </svg>
                   </div>
                 </div>
-
                 <Navbar handleHamburgerClick={handleHamburgerClick} />
               </Route>
               <Route path="/chapters/:id">
@@ -108,7 +110,7 @@ function App() {
               </Route>
             </Switch>
           </div>
-          <div className="content">
+          <div className="content" ref={contentRef}>
             <div className="introduction">
               <div
                 id="hamburger"
@@ -156,7 +158,7 @@ function App() {
                 <ChapterSummary />
               </Route>
               <Route path="/chapters/:ch/:vs">
-                <VerseDetails />
+                <VerseDetails contentRef={contentRef} />
               </Route>
             </Switch>
           </div>
