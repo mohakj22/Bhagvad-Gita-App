@@ -107,8 +107,8 @@ section p {
 .pageIntro .links {
   display: flex;
   align-items: center;
-  position:fixed;
-  right:1%;
+  position: fixed;
+  right: 1%;
 }
 .pageIntro .links a {
   color: whitesmoke;
@@ -156,14 +156,14 @@ section p {
   position: fixed;
   width: 100%;
 }
-  .content {
-    flex: 1;
-    padding: 10px;
-    padding-top: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: calc(100vh);
-  }
+.content {
+  flex: 1;
+  padding: 10px;
+  padding-top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh);
+}
 
 .footer {
   height: 85px;
@@ -426,7 +426,6 @@ section p {
   .pageIntro h1 {
     padding: 0;
   }
-  
 }
 @media (max-width: 500px) {
   .pageIntro {
@@ -493,8 +492,8 @@ section p {
   color: #ffffff;
   padding: 10px;
 }
-.nav-buttons{
-  display:flex;
+.nav-buttons {
+  display: flex;
   justify-content: center;
 }
 .nav-buttons {
@@ -519,7 +518,7 @@ section p {
   font-size: 18px;
   margin: 0 10px; /* Add margin to space buttons evenly */
   cursor: pointer; /* Change the cursor to pointer */
-  border:none;
+  border: none;
 }
 
 .nb:hover {
@@ -530,4 +529,3 @@ section p {
 .nb:active {
   transform: scale(0.95);
 }
-

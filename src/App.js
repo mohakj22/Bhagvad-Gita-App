@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <ScrollToTop /> {/* Ensure this is added here */}
+        <ScrollToTop />
         <div className="main">
           <div className={`navbar ${isMenuOpen ? "open" : "closed"}`}>
             <Switch>

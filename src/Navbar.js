@@ -1,21 +1,30 @@
 import useFetch from "./useFetch";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const Navbar = ({ handleHamburgerClick }) => {
+const Navbar = () => {
   const { data, loading, error } = useFetch(
     "https://bhagavad-gita3.p.rapidapi.com/v2/chapters/?skip=0&limit=18"
   );
 
   const history = useHistory();
+  const location = useLocation();
+  const [selectedChapter, setSelectedChapter] = useState("");
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setSelectedChapter("");
+    }
+  }, [location.pathname]);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
   const handleChange = (event) => {
     const chapterId = event.target.value;
+    setSelectedChapter(chapterId);
     if (chapterId) {
       history.push(`/chapters/${chapterId}`);
-      handleHamburgerClick();
     }
   };
 
@@ -24,7 +33,7 @@ const Navbar = ({ handleHamburgerClick }) => {
       <select
         className="chapter-select"
         onChange={handleChange}
-        defaultValue=""
+        value={selectedChapter}
       >
         <option value="" disabled>
           Select a Chapter
@@ -35,7 +44,7 @@ const Navbar = ({ handleHamburgerClick }) => {
               Chapter: {chapter.id}
             </option>
           ))}
-      </select> 
+      </select>
     </div>
   );
 };
