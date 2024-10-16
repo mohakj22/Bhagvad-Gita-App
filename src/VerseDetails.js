@@ -47,7 +47,7 @@ const VerseDetails = ({ contentRef }) => {
 
       // Scroll the content element to the top
       if (contentRef.current) {
-        contentRef.current.scrollTo({ top: 0, behavior: "smooth" });
+        contentRef.current.scrollTo({ top: 0 });
       }
     }
   }, [verseData.data, contentRef]);
